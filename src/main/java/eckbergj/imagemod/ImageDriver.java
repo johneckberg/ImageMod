@@ -9,9 +9,12 @@ package eckbergj.imagemod;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import jfxtras.styles.jmetro.JMetro;
+import jfxtras.styles.jmetro.JMetroStyleClass;
+import jfxtras.styles.jmetro.Style;
+
 import java.io.IOException;
 
 
@@ -28,9 +31,11 @@ public class ImageDriver extends Application {
     public void start(Stage stage) throws IOException {
 
         //main window
-
         FXMLLoader loader = new FXMLLoader((Controller.class.getResource("fxml/Manipulator.fxml")));
         Scene scene = new Scene(loader.load());
+        JMetro jMetro = new JMetro(Style.DARK);
+        jMetro.setScene(scene);
+        scene.getRoot().getStyleClass().add(JMetroStyleClass.BACKGROUND);
         stage.setTitle("Image GUI");
         stage.setScene(scene);
 
