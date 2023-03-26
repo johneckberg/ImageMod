@@ -46,24 +46,45 @@ public class ImageDriver extends Application {
         FXMLLoader secondaryLoader = new FXMLLoader(ConvolveController.class.getResource("fxml/Convolve.fxml"));
         Stage secondaryStage = new Stage();
         //Secondary Stage/Window
-        secondaryStage.setScene(new Scene(secondaryLoader.load(), 320, 240));
+        secondaryStage.setScene(new Scene(secondaryLoader.load()));
+        jMetro.setScene(secondaryStage.getScene());
+        secondaryStage.getScene().getRoot().getStyleClass().add(JMetroStyleClass.BACKGROUND);
         secondaryStage.hide();
 
+        //detection window
+        FXMLLoader tertiaryLoader = new FXMLLoader(DetectController.class.getResource("fxml/Detect.fxml"));
+        Stage tertiaryStage = new Stage();
+        //Tertiary Stage/Window
+        tertiaryStage.setScene(new Scene(tertiaryLoader.load()));
+        jMetro.setScene(tertiaryStage.getScene());
+        tertiaryStage.getScene().getRoot().getStyleClass().add(JMetroStyleClass.BACKGROUND);
+        tertiaryStage.hide();
 
         //Get Controllers
         ConvolveController secondaryController = secondaryLoader.getController();
         Controller primaryController = loader.getController();
+        DetectController tertiaryController = tertiaryLoader.getController();
 
-        //external close closer
+        //external close closers
         secondaryStage.setOnCloseRequest(e -> primaryController.convolveButton());
+        tertiaryStage.setOnCloseRequest(e -> primaryController.detectButton());
 
         //Pass stage references to each of the controllers
-        primaryController.setReferenceStage(secondaryStage);
+        primaryController.setSecondaryStage(secondaryStage);
         primaryController.setPrimaryStage(stage);
+        primaryController.setTertiaryStage(tertiaryStage);
+
         secondaryController.setReferenceStage(stage);
         secondaryController.setSecondaryStage(secondaryStage);
+
+        tertiaryController.setReferenceStage(stage);
+        tertiaryController.setTertiaryStage(tertiaryStage);
+
+
         //pass through controller
+        primaryController.setRefrenceController(tertiaryController);
         secondaryController.setReferenceController(primaryController);
+        tertiaryController.setReferenceController(primaryController);
     }
 
 }

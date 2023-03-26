@@ -17,6 +17,70 @@
                <viewport>
                   <Rectangle2D />
                </viewport></ImageView>
+            <HBox layoutX="53.0" layoutY="385.0" prefHeight="111.0" prefWidth="696.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="67.0" prefWidth="223.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#negative" prefHeight="47.0" prefWidth="87.0" text="Invert">
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#grayScale" prefHeight="47.0" prefWidth="87.0" text="GreyScale">
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="67.0" prefWidth="223.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#red" prefHeight="47.0" prefWidth="87.0" text="Red">
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#redGray" prefHeight="47.0" prefWidth="87.0" text="RedGrey">
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="67.0" prefWidth="223.0">
+                     <children>
+                        <Button fx:id="detect" mnemonicParsing="false" onAction="#detectButton" prefHeight="44.0" prefWidth="112.0" text="Detect">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="filter" mnemonicParsing="false" onAction="#convolveButton" prefHeight="44.0" prefWidth="112.0" text="Convolve">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
          </children>
       </Pane>
       <VBox alignment="TOP_CENTER" layoutX="686.0" layoutY="14.0" prefHeight="327.0" prefWidth="117.0">
@@ -47,46 +111,5 @@
             </Button>
          </children>
       </VBox>
-      <Button fx:id="filter" layoutX="606.0" layoutY="425.0" mnemonicParsing="false" onAction="#convolveButton" prefHeight="44.0" prefWidth="112.0" text="Convolve" />
-      <HBox alignment="CENTER" layoutX="298.0" layoutY="411.0" prefHeight="67.0" prefWidth="223.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#red" prefHeight="47.0" prefWidth="87.0" text="Red">
-               <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#redGray" prefHeight="47.0" prefWidth="87.0" text="RedGrey">
-               <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
-      <HBox alignment="CENTER" layoutX="41.0" layoutY="410.0" prefHeight="67.0" prefWidth="223.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#negative" prefHeight="47.0" prefWidth="87.0" text="Invert">
-               <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#grayScale" prefHeight="47.0" prefWidth="87.0" text="GreyScale">
-               <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
    </children>
 </AnchorPane>

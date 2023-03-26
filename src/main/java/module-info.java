@@ -7,6 +7,8 @@ module eckbergj.imagemod {
     requires org.kordamp.bootstrapfx.core;
     requires ImageUtil; //MSOE specific package
     requires org.jfxtras.styles.jmetro;
+    requires ai.djl.api;
+    requires ai.djl.mxnet_model_zoo;
 
     opens eckbergj.imagemod to javafx.fxml;
     exports eckbergj.imagemod;

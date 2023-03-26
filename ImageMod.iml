@@ -29,5 +29,10 @@
     <orderEntry type="library" name="Maven: org.jfxtras:jmetro:11.6.16" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:mac:11.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.metro:metro-project:4.0.2" level="project" />
+    <orderEntry type="library" name="openjfx.javafx.swing" level="project" />
+    <orderEntry type="library" name="ai.djl.api" level="project" />
+    <orderEntry type="library" name="ai.djl.mxnet.engine" level="project" />
+    <orderEntry type="library" name="ai.djl.mxnet.model.zoo" level="project" />
+    <orderEntry type="library" name="slf4j.simple" level="project" />
   </component>
 </module>

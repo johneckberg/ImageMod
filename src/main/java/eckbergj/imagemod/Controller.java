@@ -37,13 +37,19 @@ public class Controller {
     private Button filter;
 
     @FXML
+    private Button detect;
+
+    @FXML
     private ImageView imageView;
 
     @FXML
     private AnchorPane window;
 
+    DetectController detectController;
+
     private Stage primaryStage;
     private Stage secondaryStage;
+    private Stage tertiaryStage;
 
     private Image preOp;
     private Image postOp;
@@ -142,12 +148,20 @@ public class Controller {
 
     }
 
-    protected void setReferenceStage(Stage stage){
+    protected void setSecondaryStage(Stage stage){
         this.secondaryStage = stage;
+    }
+
+    protected void setTertiaryStage(Stage stage){
+        this.tertiaryStage = stage;
     }
 
     protected void setPrimaryStage(Stage stage){
         this.primaryStage = stage;
+    }
+
+    protected void setRefrenceController(DetectController controller){
+        this.detectController = controller;
     }
 
     @FXML
@@ -212,9 +226,6 @@ public class Controller {
     }
 
 
-
-
-
     /**
      *Gets pre operated on Image
      */
@@ -241,18 +252,33 @@ public class Controller {
      */
     @FXML
     public void convolveButton(){
+        stageManager(secondaryStage, filter, "Convolve");
+    }
+
+    /**
+     * Opens and closes detection window
+     */
+    @FXML
+    public void detectButton(){
+        stageManager(tertiaryStage, detect, "Detect");
+        detectController.setImageView(imageView.getImage()); // as to not pass a shallow copy?
+    }
+    /**
+     * Helper method for managing windows
+     */
+    private void stageManager(Stage stage, Button button, String name) {
         if(imageView.getImage() != null) {
-            if (secondaryStage.isShowing()) {
-                secondaryStage.hide();
-                filter.setText("Filter");
-            } else if (!secondaryStage.isShowing()) {
-                secondaryStage.show();
-                filter.setText("Close Filter");
+            if (stage.isShowing()) {
+                stage.hide();
+                button.setText(name);
+            } else if (!stage.isShowing()) {
+                stage.show();
+                button.setText("Close");
             }
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("No Image");
-            alert.setContentText("No image convolution can be applied as no image has been loaded ");
+            alert.setContentText("No operation can be applied as no image has been loaded ");
 
             alert.showAndWait();
         }

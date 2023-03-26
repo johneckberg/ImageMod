@@ -61,7 +61,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="67.0" prefWidth="223.0">
                      <children>
-                        <Button fx:id="Instruct" mnemonicParsing="false" prefHeight="44.0" prefWidth="112.0" text="Instruct">
+                        <Button fx:id="detect" mnemonicParsing="false" onAction="#detectButton" prefHeight="44.0" prefWidth="112.0" text="Detect">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>

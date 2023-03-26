@@ -38,6 +38,11 @@ public class ImageIO {
     static final int s = 83;
     static final int o = 79;
     static final int e = 69;
+    static private Path lastRead;
+
+    public static Path getLastRead(){
+        return lastRead;
+    }
 
     /**
      * Reads an image from a specified file path
@@ -62,6 +67,7 @@ public class ImageIO {
             System.out.println(pathString);
             throw new IllegalArgumentException("File extension invalid");
         }
+        lastRead = path;
         return image;
     }
 

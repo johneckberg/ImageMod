@@ -127,7 +127,7 @@ public class ConvolveController {
 
     @FXML
     /**
-     * Applies sharpen transformation to Image
+     * Applies to sharpen transformation to Image
      */
     void Sharpen() {
         oneone.setText("0"); onetwo.setText("-1"); onethree.setText("0");
@@ -138,7 +138,7 @@ public class ConvolveController {
 
     @FXML
     /**
-     * Closes Convolution Image
+     * Closes Convolution Image using the Convolve button manager from the main controller
      */
     void close(){
         referenceController.convolveButton();
