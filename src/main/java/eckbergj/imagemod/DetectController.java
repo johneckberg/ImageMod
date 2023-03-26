@@ -11,7 +11,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Path;
 
 public class DetectController {
 
@@ -54,7 +56,9 @@ public class DetectController {
     void detect(){
         try {
             Detector detector = new Detector();
-            Image boxedImage = detector.predict();
+            detector.predict().save(new FileOutputStream("boxed.png"), "png");
+            //TODO sys message?
+            imageViewTwo.setImage(ImageIO.read(Path.of("boxed.png")));
         } catch (ModelNotFoundException | MalformedModelException | IOException | TranslateException e) {
             //TODO real javafx error window
             e.printStackTrace();

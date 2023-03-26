@@ -30,19 +30,19 @@ public class Detector {
         return criteria.getProgress();
     }
 
-    //This might not be needed. loads last image I'ed assuming it's in the imageview. this is not the case if a transformation is applied
+    //This might not be needed. loads last image I'ed assuming it's in the imageview.
+    // this is not the case if a transformation is applied
     private void loadImage() throws IOException {
         image = ImageFactory.getInstance().fromFile(ImageIO.getLastRead());
 
     }
 
 
-    public javafx.scene.image.Image predict() throws TranslateException, IOException {
+    public Image predict() throws TranslateException, IOException {
         DetectedObjects objects = model.newPredictor().predict(image);
         image.drawBoundingBoxes(objects);
-        image.getWrappedImage();
 
-        return (javafx.scene.image.Image) image;
+        return image;
     }
 
 }
